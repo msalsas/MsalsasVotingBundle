@@ -1,0 +1,80 @@
+{# This file is part of the MsalsasVotingBundle package.
+
+(c) Manolo Salsas
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code. #}
+
+{% macro shakeIt(id) %}
+    {% set votes = msalsas_voting_voter.positiveVotes(id) %}
+    {% set userVote = msalsas_voting_voter.userVote(id) %}
+    {% set clicks = msalsas_voting_clicker.clicks(id) %}
+    {% set published = msalsas_voting_voter.published(id) %}
+    <div class="msalsas-voting-widget-wrapper">
+        <div class="msalsas-voting-widget">
+            <div class="msalsas-voting-shakes{% if published %} published{% endif %}">
+                <a id="msalsas-voting-shakes-{{ id }}" href="javascript:void(0)">{{ votes|default(0) }}</a> {{ 'msalsas_voting.votes'|trans }}
+            </div>
+            <div class="msalsas-voting-shake-it"
+                 id="msalsas-voting-a-shake-{{ id }}"
+                 data-id="{{ id }}"
+                 data-shakedtext="{{ 'msalsas_voting.shaked'|trans }}"
+                 data-url="{{ path('positive_vote', {id: id, _locale: app.request.locale}) }}">
+                {% if not userVote %}
+                    <a href="javascript:void(0)">{{ 'msalsas_voting.shake_it'|trans }}</a>
+                {% elseif userVote.positive %}
+                    <span id="msalsas-voting-a-positive-{{ id }}">{{ 'msalsas_voting.shaked'|trans }}</span>
+                {% else %}
+                    <span id="msalsas-voting-a-negative-{{ id }}">{{ userVote.reason|trans }}</span>
+                {% endif %}
+            </div>
+            <div class="msalsas-voting-clicks{% if published %} published{% endif %}">
+                {% if clicks %}
+                    {{ 'msalsas_voting.clicks'|transchoice(clicks) }}
+                {% else %}
+                    &nbsp;
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endmacro shakeIt %}
+
+{% macro bottomBar(id) %}
+    {% set votes = msalsas_voting_voter.positiveVotes(id) %}
+    {% set anonymousVotes = msalsas_voting_voter.anonymousVotes(id) %}
+    {% set userPositiveVotes = msalsas_voting_voter.userPositiveVotes(id) %}
+    {% set negativeVotes = msalsas_voting_voter.negativeVotes(id) %}
+    {% set userVote = msalsas_voting_voter.userVote(id) %}
+    {% set negativeReasons = msalsas_voting_voter.negativeReasons() %}
+    <div class="msalsas-voting-bottom-bar-wrapper">
+        <div class="msalsas-voting-bottom-bar">
+            <span class="msalsas-voting-bottom-bar-votes-up" data-toggle="tooltip" data-placement="top" title="{{ 'msalsas_voting.positive_votes'|trans }}"><i class="fa fa-arrow-circle-up"></i> <strong><span id="msalsas-voting-bottom-bar-votes-up-{{ id }}" >{{ userPositiveVotes|default(0) }}</span></strong></span>
+            <span class="msalsas-voting-bottom-bar-votes-anonymous" data-toggle="tooltip" data-placement="top" title="{{ 'msalsas_voting.anonymous_votes'|trans }}"><i class="fa fa-user-secret"></i> <strong><span id="msalsas-voting-bottom-bar-votes-anonymous-{{ id }}" >{{ anonymousVotes|default(0) }}</span></strong></span>
+            <span class="msalsas-voting-bottom-bar-votes-down" data-toggle="tooltip" data-placement="top" title="{{ 'msalsas_voting.negative_votes'|trans }}"><i class="fa fa-arrow-circle-down"></i> <strong><span id="msalsas-voting-bottom-bar-votes-down-{{ id }}">{{ negativeVotes|default(0) }}</span></strong></span>
+
+            {% if not userVote and msalsas_voting_voter.userCanVoteNegative(id) %}
+                <form action=""
+                      id="msalsas-voting-problem-{{ id }}"
+                      data-url="{{ path('negative_vote', {id: id, _locale: app.request.locale}) }}"
+                      data-id="{{ id }}"
+                >
+                    <select name="ratings">
+                        <option value="0" selected="selected">{{ 'msalsas_voting.problem'|trans }}</option>
+                        {% for value in negativeReasons %}
+                            <option value="{{ value }}">{{ value|trans }}</option>
+                        {% endfor %}
+                    </select>
+                </form>
+            {% endif %}
+        </div>
+    </div>
+{% endmacro bottomBar %}
+
+{% macro shakeItCSS() %}
+    <style>{{ source('@msalsas_voting.public/css/msalsas_voting_styles.css') }}</style>
+{% endmacro shakeItCSS %}
+
+{% macro shakeItJS() %}
+    <script>{{ source('@msalsas_voting.public/js/msalsas_voting_shakeIt.js') }}</script>
+    <script>{{ source('@msalsas_voting.public/js/msalsas_voting_bottomBar.js') }}</script>
+{% endmacro shakeItJS %}

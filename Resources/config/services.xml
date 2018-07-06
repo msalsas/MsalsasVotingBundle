@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+        http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="msalsas_voting.anonymous_percent_allowed" />
+        <parameter key="msalsas_voting.anonymous_min_allowed" />
+        <parameter key="msalsas_voting.negative_reasons" />
+    </parameters>
+    <services>
+        <!-- Voter service -->
+        <service id="msalsas_voting.voter" class="Msalsas\VotingBundle\Service\Voter">
+            <argument key="$em" type="service" id="doctrine.orm.entity_manager"/>
+            <argument key="$token" type="service" id="security.token_storage"/>
+            <argument key="$requestStack" type="service" id="request_stack"/>
+            <argument key="$translator" type="service" id="translator"/>
+            <argument key="$anonPercentAllowed" type="string">%msalsas_voting.anonymous_percent_allowed%</argument>
+            <argument key="$anonMinAllowed" type="string">%msalsas_voting.anonymous_min_allowed%</argument>
+            <argument key="$negativeReasons" type="string">%msalsas_voting.negative_reasons%</argument>
+        </service>
+
+        <service id="Msalsas\VotingBundle\Service\Voter" alias="msalsas_voting.voter" />
+        <!-- End Voter service -->
+
+        <!-- Clicker service -->
+        <service id="msalsas_voting.clicker" class="Msalsas\VotingBundle\Service\Clicker">
+            <argument key="$em" type="service" id="doctrine.orm.entity_manager"/>
+            <argument key="$token" type="service" id="security.token_storage"/>
+            <argument key="$requestStack" type="service" id="request_stack"/>
+            <argument key="$translator" type="service" id="translator"/>
+        </service>
+
+        <service id="Msalsas\VotingBundle\Service\Clicker" alias="msalsas_voting.clicker" />
+        <!-- End Clicker service -->
+
+        <!-- Controller -->
+        <service id="msalsas_voting.controller" class="Msalsas\VotingBundle\Controller\VoteController" public="true">
+            <argument key="$voter" type="service" id="msalsas_voting.voter"/>
+        </service>
+
+        <service id="Msalsas\VotingBundle\Controller\VoteController" alias="msalsas_voting.controller" public="true"/>
+        <!-- End Controller -->
+    </services>
+</container>

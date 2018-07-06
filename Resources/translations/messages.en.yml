@@ -1,0 +1,27 @@
+msalsas_voting:
+    votes: shakes
+    shake_it: shake it
+    shaked: shaked
+    clicks: "{0} %count% clicks|{1} %count% click|]1,Inf[ %count% clicks"
+    problem: problem
+    positive_votes: Positive votes
+    anonymous_votes: Anonymous votes
+    negative_votes: Negative votes
+    negative_reasons:
+        irrelevant: irrelevant
+        old: old
+        tiredness: tiredness
+        sensationalist: sensationalist
+        spam: spam
+        duplicated: duplicated
+        microblogging: microblogging
+        erroneous: erroneous
+        plagiarism: copy/plagiarism
+    errors:
+        anon_cannot_vote_negative: 'Anonymous user cannot vote negative.'
+        ref_does_not_exist: 'Reference %reference% does not exist.'
+        no_ip_defined_for_anon: 'No IP has been defined for anonymous user.'
+        already_voted: 'You have already voted.'
+        already_clicked: 'You have already clicked.'
+        too_much_anon_votes: 'Too much anonymous votes.'
+        invalid_reason: 'Invalid reason.'

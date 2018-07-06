@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                  http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="Msalsas\VotingBundle\Entity\ReferenceVotes" table="msalsas_voting_reference_votes" repository-class="Msalsas\VotingBundle\Entity\ReferenceVotesRepository">
+        <id name="reference" column="reference" type="integer" length="180" />
+
+        <field name="positiveVotes" column="positiveVotes" type="integer" length="180" />
+        <field name="negativeVotes" column="negativeVotes" type="integer" length="180" />
+        <field name="userVotes" column="userVotes" type="integer" length="180" />
+        <field name="anonymousVotes" column="anonymousVotes" type="integer" length="180" />
+        <field name="published" column="published" type="integer" length="180" />
+    </entity>
+
+</doctrine-mapping>

@@ -1,0 +1,27 @@
+msalsas_voting:
+    votes: meneos
+    shake_it: menéalo
+    shaked: ¡hecho!
+    clicks: "{0} %count% clics|{1} %count% clic|]1,Inf[ %count% clics"
+    problem: problema
+    positive_votes: Votos positivos
+    anonymous_votes: Votos anónimos
+    negative_votes: Votos negativos
+    negative_reasons:
+        irrelevant: irrelevante
+        old: antigua
+        tiredness: cansina
+        sensationalist: sensacionalista
+        spam: spam
+        duplicated: duplicada
+        microblogging: microblogging
+        erroneous: errónea
+        plagiarism: copia/plagio
+    errors:
+        anon_cannot_vote_negative: 'Los usuarios anonimos no pueden votar negativo.'
+        ref_does_not_exist: 'La referencia %reference% no existe.'
+        no_ip_defined_for_anon: 'No ha sido definida ninguna IP para el usuario anonimo.'
+        already_voted: 'Ya has votado.'
+        already_clicked: 'Ya has hecho clic.'
+        too_much_anon_votes: 'Demasiados votos anonimos.'
+        invalid_reason: 'Razon invalida.'

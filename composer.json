@@ -1,0 +1,58 @@
+{
+  "name": "msalsas/voting-bundle",
+  "type": "symfony-bundle",
+  "description": "Symfony MsalsasVotingBundle",
+  "keywords": ["Voting management, Rating management"],
+  "homepage": "https://github.com/msalsas/MsalsasVotingBundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Manolo Salsas",
+      "email": "manolez@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.0",
+    "symfony/framework-bundle": "^4.0",
+    "symfony/security-bundle": "^4.0",
+    "symfony/twig-bundle": "^4.0",
+    "symfony/validator": "^4.0",
+    "doctrine/doctrine-bundle": "^1.6.10",
+    "doctrine/orm": "^2.5.11"
+  },
+  "require-dev": {
+    "dama/doctrine-test-bundle": "^5.0",
+    "phpunit/phpunit": "^7.2",
+    "symfony/phpunit-bridge": "^4.0"
+  },
+  "config": {
+    "platform": {
+      "php": "7.1.3"
+    },
+    "preferred-install": {
+      "*": "dist"
+    },
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "Msalsas\\VotingBundle\\": ""
+    },
+    "exclude-from-classmap": [
+      "/Tests/"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Msalsas\\VotingBundle\\Tests\\": "tests/"
+    }
+  },
+  "conflict": {
+    "symfony/symfony": "<4.0"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.0.x-dev"
+    }
+  }
+}

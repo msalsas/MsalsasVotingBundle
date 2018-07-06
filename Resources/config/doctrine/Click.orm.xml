@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                  http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="Msalsas\VotingBundle\Entity\Click" table="msalsas_voting_clicks" repository-class="Msalsas\VotingBundle\Entity\ClickRepository">
+        <id name="id" type="integer"><generator strategy="AUTO"/></id>
+
+        <many-to-one field="user" target-entity="\Msalsas\VotingBundle\Entity\Vote\UserInterface">
+            <join-column name="user_id"
+                         referenced-column-name="id"
+                         on-delete="CASCADE" />
+        </many-to-one>
+
+        <field name="reference" column="reference" type="integer" length="180" />
+
+        <field name="userIP" column="user_ip" type="string" length="180" nullable="true" />
+    </entity>
+
+</doctrine-mapping>
