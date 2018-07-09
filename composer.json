@@ -2,7 +2,7 @@
   "name": "msalsas/voting-bundle",
   "type": "symfony-bundle",
   "description": "Symfony bundle for voting/rating",
-  "keywords": ["Voting management, Rating management"],
+  "keywords": ["Voting", "Rating"],
   "homepage": "https://github.com/msalsas/MsalsasVotingBundle",
   "license": "MIT",
   "authors": [
