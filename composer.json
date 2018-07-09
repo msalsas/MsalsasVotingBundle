@@ -16,7 +16,6 @@
     "symfony/framework-bundle": "^4.0",
     "symfony/security-bundle": "^4.0",
     "symfony/twig-bundle": "^4.0",
-    "symfony/validator": "^4.0",
     "doctrine/doctrine-bundle": "^1.6.10",
     "doctrine/orm": "^2.5.11"
   },
