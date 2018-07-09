@@ -95,10 +95,10 @@ class MsalsasVotingExtensionTest extends TestCase
         $this->assertTrue($twigConfig[0]['globals']['msalsas_voting_voter'] === "@msalsas_voting.voter");
         $this->assertTrue(isset($twigConfig[0]['globals']['msalsas_voting_clicker']));
         $this->assertTrue($twigConfig[0]['globals']['msalsas_voting_clicker'] === "@msalsas_voting.clicker");
-        $this->assertTrue(isset($twigConfig[0]['paths']['%kernel.project_dir%/lib/MsalsasVotingBundle/src/Resources/views']));
-        $this->assertTrue($twigConfig[0]['paths']['%kernel.project_dir%/lib/MsalsasVotingBundle/src/Resources/views'] === "msalsas_voting");
-        $this->assertTrue(isset($twigConfig[0]['paths']['%kernel.project_dir%/lib/MsalsasVotingBundle/src/Resources/public']));
-        $this->assertTrue($twigConfig[0]['paths']['%kernel.project_dir%/lib/MsalsasVotingBundle/src/Resources/public'] === "msalsas_voting.public");
+        $this->assertTrue(isset($twigConfig[0]['paths']['%kernel.project_dir%/vendor/msalsas/voting-bundle/Resources/views']));
+        $this->assertTrue($twigConfig[0]['paths']['%kernel.project_dir%/vendor/msalsas/voting-bundle/Resources/views'] === "msalsas_voting");
+        $this->assertTrue(isset($twigConfig[0]['paths']['%kernel.project_dir%/vendor/msalsas/voting-bundle/Resources/public']));
+        $this->assertTrue($twigConfig[0]['paths']['%kernel.project_dir%/vendor/msalsas/voting-bundle/Resources/public'] === "msalsas_voting.public");
     }
 
     /**
