@@ -18,12 +18,12 @@ file that was distributed with this source code. #}
             <div class="msalsas-voting-shake-it"
                  id="msalsas-voting-a-shake-{{ id }}"
                  data-id="{{ id }}"
-                 data-shakedtext="{{ 'msalsas_voting.shaked'|trans }}"
+                 data-shakentext="{{ 'msalsas_voting.shaken'|trans }}"
                  data-url="{{ path('positive_vote', {id: id, _locale: app.request.locale}) }}">
                 {% if not userVote %}
                     <a href="javascript:void(0)">{{ 'msalsas_voting.shake_it'|trans }}</a>
                 {% elseif userVote.positive %}
-                    <span id="msalsas-voting-a-positive-{{ id }}">{{ 'msalsas_voting.shaked'|trans }}</span>
+                    <span id="msalsas-voting-a-positive-{{ id }}">{{ 'msalsas_voting.shaken'|trans }}</span>
                 {% else %}
                     <span id="msalsas-voting-a-negative-{{ id }}">{{ userVote.reason|trans }}</span>
                 {% endif %}

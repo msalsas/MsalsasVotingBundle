@@ -1,7 +1,7 @@
 msalsas_voting:
     votes: shakes
     shake_it: shake it
-    shaked: shaked
+    shaken: shaken
     clicks: "{0} %count% clicks|{1} %count% click|]1,Inf[ %count% clicks"
     problem: problem
     positive_votes: Positive votes

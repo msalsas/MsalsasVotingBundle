@@ -26,7 +26,7 @@ For more information about translations, check `Symfony documentation`_.
 Installation
 ------------
 
-Installation is a quick 6 step process:
+Installation is a quick 7 step process:
 
 1. Download MsalsasVotingBundle using composer
 2. Enable the Bundle
@@ -34,6 +34,7 @@ Installation is a quick 6 step process:
 4. Configure the MsalsasVotingBundle
 5. Import MsalsasVotingBundle routing
 6. Update your database schema
+7. Display the widgets
 
 Step 1: Download MsalsasVotingBundle using composer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -132,6 +133,41 @@ Run the following command.
 
     $ php bin/console doctrine:schema:update --force
 
+Step 7: Display the widgets
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+For displaying the voting widgets you have to use macros:
+
+.. code-block:: html+jinja
+
+    {% import "@msalsas_voting/msalsas_voting_widget.html.twig" as msalsas_voting_widget %} # Import macros
+    {{ msalsas_voting_widget.shakeItCSS() }} # Import CSS macro (optional)
+    {{ msalsas_voting_widget.shakeItJS() }} # Import JS macro
+
+    <article class="post">
+        {{ msalsas_voting_widget.shakeIt(post.id) }} # Import the voting widget
+        <h2>
+            <a href="{{ path('blog_post', {slug: post.slug}) }}"> # This is just an example
+                {{ post.title }}
+            </a>
+        </h2>
+
+        ...
+
+        {{ msalsas_voting_widget.bottomBar(post.id) }} # Import bottom bar widget (includes negative voting form)
+    </article>
+
+Also, you have to import [Font Awesome][1] if you want to show the bottom bar icons
+
+
+Instead of using ``msalsas_voting_widget.shakeItCSS()`` and ``msalsas_voting_widget.shakeItJS()``
+you can import ``vendor/msalsas/voting-bundle/Resources/public/css/msalsas_voting_styles.css``,
+``vendor/msalsas/voting-bundle/Resources/public/js/msalsas_voting_shakeIt.js`` and
+``vendor/msalsas/voting-bundle/Resources/public/js/msalsas_voting_bottomBar.js`` with your assets.
+
+[1]: https://fontawesome.com/how-to-use/on-the-web/setup/getting-started?using=web-fonts-with-css
+
+
 Next Steps
 ~~~~~~~~~~
 
@@ -144,19 +180,16 @@ The following documents are available:
 .. toctree::
 :maxdepth: 1
 
-        displaying_widgets
         clicks_or_views
         routing
         configuration_reference
 
 
 
-[1. Displaying widgets][1]
-[2. Clicks or views][2]
-[3. Routing][3]
-[4. Configuration reference][4]
+[1. Clicks or views][2]
+[2. Routing][3]
+[3. Configuration reference][4]
 
-[1]: ./displaying_widgets.rst
 [2]: ./clicks_or_views.rst
 [3]: ./routing.rst
 [4]: ./configuration_reference.rst

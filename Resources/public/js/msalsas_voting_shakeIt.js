@@ -21,7 +21,7 @@
         var shakeItButton = evt.target.parentNode;
         var id = shakeItButton.dataset.id;
         var url = shakeItButton.dataset.url;
-        var shakedText = shakeItButton.dataset.shakedtext;
+        var shakenText = shakeItButton.dataset.shakentext;
         var http = new XMLHttpRequest();
         http.open('POST', url, true);
         http.setRequestHeader('Content-type', 'application/json');
@@ -32,7 +32,7 @@
                 var shakesElem = document.getElementById('msalsas-voting-shakes-' + id);
                 shakesElem.text = document.createTextNode(http.responseText).wholeText;
                 var buttonElem = document.getElementById('msalsas-voting-a-shake-' + id);
-                buttonElem.innerHTML = '<span>' + shakedText + '</span>';
+                buttonElem.innerHTML = '<span>' + shakenText + '</span>';
             } else if(http.readyState == 4 && http.status >= 400) {
                 alert(http.responseText);
             }

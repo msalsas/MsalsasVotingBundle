@@ -1,7 +1,7 @@
 msalsas_voting:
     votes: meneos
     shake_it: menéalo
-    shaked: ¡hecho!
+    shaken: ¡hecho!
     clicks: "{0} %count% clics|{1} %count% clic|]1,Inf[ %count% clics"
     problem: problema
     positive_votes: Votos positivos
