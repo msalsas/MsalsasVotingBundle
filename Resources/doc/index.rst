@@ -1,7 +1,7 @@
 Getting Started With MsalsasVotingBundle
 ========================================
 
-This bundle provides a way for voting posts.
+This bundle provides a way for voting posts or whatever.
 
 Prerequisites
 -------------
@@ -25,6 +25,7 @@ For more information about translations, check `Symfony documentation`_.
 
 .. _Symfony documentation: https://symfony.com/doc/current/book/translation.html
 
+
 Installation
 ------------
 
@@ -34,9 +35,10 @@ Installation is a quick 7 step process:
 2. Enable the Bundle
 3. Create your Reference class (post, article or whatever)
 4. Configure the MsalsasVotingBundle
-5. Import MsalsasVotingBundle routing
+5. Create MsalsasVotingBundle routing
 6. Update your database schema
 7. Display the widgets
+
 
 Step 1: Download MsalsasVotingBundle using composer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -67,6 +69,7 @@ Enable the bundle in the kernel::
         );
     }
 
+
 Step 3: Create your Reference class
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -75,6 +78,7 @@ The goal of this bundle is to handle votes and clicks for a ``Reference``
 Your first job, then, is to create the ``Reference`` class
 for your application. This class can look and act however you want: add any
 properties or methods you find useful. This is *your* ``Reference`` class.
+
 
 Step 4: Configure the MsalsasVotingBundle
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -100,14 +104,11 @@ Add the following configuration to your ``config/packages/msalsas_voting.yaml`` 
                 - msalsas_voting.negative_reasons.plagiarism
 
 
-Only user_provider is required to use the bundle:
+Step 5: Create MsalsasVotingBundle routes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-Step 5: Import MsalsasVotingBundle routing files
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Now that you have activated and configured the bundle, all that is left to do is
-import the MsalsasVotingBundle routing file.
+Now that you have activated and configured the bundle, you have to create the routing file.
+You can edit the paths to whatever you want, but including ``{id}``.
 
 .. configuration-block::
 
@@ -115,13 +116,14 @@ import the MsalsasVotingBundle routing file.
 
         # config/routes/msalsas_voting.yml
         positive_vote:
-            path: /vote-positive/{id}
+            path: /vote-positive/{_locale}/{id}
             controller: Msalsas\VotingBundle\Controller\VoteController:votePositive
             methods: POST
         negative_vote:
-            path: /vote-negative/{id}
+            path: /vote-negative/{_locale}/{id}
             controller: Msalsas\VotingBundle\Controller\VoteController:voteNegative
             methods: POST
+
 
 Step 6: Update your database schema
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -134,6 +136,7 @@ Run the following command.
 .. code-block:: bash
 
     $ php bin/console doctrine:schema:update --force
+
 
 Step 7: Display the widgets
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -181,11 +184,8 @@ The following documents are available:
 
 `1. Clicks or views`_.
 
-`2. Routing`_.
-
-`3. Configuration reference`_.
+`2. Configuration reference`_.
 
 .. _1. Clicks or views: ./clicks_or_views.rst
-.. _2. Routing: ./routing.rst
-.. _3. Configuration reference: ./configuration_reference.rst
+.. _2. Configuration reference: ./configuration_reference.rst
 
