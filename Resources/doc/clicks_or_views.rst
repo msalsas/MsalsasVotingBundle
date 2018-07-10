@@ -1,7 +1,7 @@
 MsalsasVotingBundle clicks or views
 ===================================
 
-For incrementing the clicks or views of a reference you have to type-hint the ``Clicker``in a
+For incrementing the clicks or views of a reference you have to type-hint the ``Clicker`` in a
 controller action and call ``addClick`` with the reference id (you will have to configure this route):
 
 

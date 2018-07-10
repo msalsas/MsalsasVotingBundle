@@ -159,7 +159,7 @@ For displaying the voting widgets you have to use macros:
         {{ msalsas_voting_widget.bottomBar(post.id) }} # Import bottom bar widget (includes negative voting form)
     </article>
 
-Also, you have to import [Font Awesome][1] if you want to show the bottom bar icons
+Also, you have to import `Font Awesome`_ if you want to show the bottom bar icons
 
 
 Instead of using ``msalsas_voting_widget.shakeItCSS()`` and ``msalsas_voting_widget.shakeItJS()``
@@ -167,7 +167,7 @@ you can import ``vendor/msalsas/voting-bundle/Resources/public/css/msalsas_votin
 ``vendor/msalsas/voting-bundle/Resources/public/js/msalsas_voting_shakeIt.js`` and
 ``vendor/msalsas/voting-bundle/Resources/public/js/msalsas_voting_bottomBar.js`` with your assets.
 
-[1]: https://fontawesome.com/how-to-use/on-the-web/setup/getting-started?using=web-fonts-with-css
+.. _Font Awesome: https://fontawesome.com/how-to-use/on-the-web/setup/getting-started?using=web-fonts-with-css
 
 
 Next Steps
@@ -180,7 +180,9 @@ of the bundle.
 The following documents are available:
 
 `1. Clicks or views`_.
+
 `2. Routing`_.
+
 `3. Configuration reference`_.
 
 .. _1. Clicks or views: ./clicks_or_views.rst
