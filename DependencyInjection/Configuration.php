@@ -29,6 +29,7 @@ class Configuration implements ConfigurationInterface
         $rootNode->children()
             ->scalarNode('user_provider')
                 ->isRequired()
+                    ->defaultValue('\App\Entity\User')
             ->end()
             ->arrayNode('negative_reasons')
                 ->isRequired()

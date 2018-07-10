@@ -6,7 +6,7 @@ All available configuration options are listed below with their default values.
 .. code-block:: yaml
 
     msalsas_voting:
-        user_provider: ~
+        user_provider: \App\Entity\User
         negative_reasons:
             - msalsas_voting.negative_reasons.irrelevant
             - msalsas_voting.negative_reasons.old
