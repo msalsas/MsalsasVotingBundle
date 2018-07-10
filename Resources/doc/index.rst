@@ -23,6 +23,8 @@ sure you have translator enabled in your config.
 
 For more information about translations, check `Symfony documentation`_.
 
+.. _Symfony documentation: https://symfony.com/doc/current/book/translation.html
+
 Installation
 ------------
 
@@ -177,19 +179,11 @@ of the bundle.
 
 The following documents are available:
 
-.. toctree::
-:maxdepth: 1
+`1. Clicks or views`_.
+`2. Routing`_.
+`3. Configuration reference`_.
 
-        clicks_or_views
-        routing
-        configuration_reference
+.. _1. Clicks or views: ./clicks_or_views.rst
+.. _2. Routing: ./routing.rst
+.. _3. Configuration reference: ./configuration_reference.rst
 
-
-
-[1. Clicks or views][2]
-[2. Routing][3]
-[3. Configuration reference][4]
-
-[2]: ./clicks_or_views.rst
-[3]: ./routing.rst
-[4]: ./configuration_reference.rst
