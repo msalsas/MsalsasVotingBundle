@@ -55,6 +55,7 @@
     background-color: #e35614;
     padding-top: 3px;
     display: block;
+    box-sizing: border-box;
     height: 25px;
     color: #FFF;
     text-decoration: none;
