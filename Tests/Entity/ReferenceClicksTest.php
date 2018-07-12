@@ -3,7 +3,7 @@
 namespace Msalsas\VotingBundle\Tests\Entity;
 
 use Msalsas\VotingBundle\Entity\ReferenceClicks;
-use PHPUnit\Framework\TestCase;
+use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
 
 class ReferenceClicksTest extends TestCase
 {

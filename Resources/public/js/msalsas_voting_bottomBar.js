@@ -21,7 +21,7 @@
         var form = evt.target.parentNode;
         var id = form.dataset.id;
         var options =  form.ratings.options;
-        msalsasVoting_Selected = options[form.ratings.selectedIndex];
+        window.msalsasVoting_Selected = options[form.ratings.selectedIndex];
         var elem = document.getElementById('msalsas-voting-problem-' + id);
         var url = elem.dataset.url;
         var http = new XMLHttpRequest();
@@ -33,7 +33,7 @@
                 var downVotes = document.getElementById('msalsas-voting-bottom-bar-votes-down-' + id);
                 downVotes.innerHTML = document.createTextNode(http.responseText).wholeText;
                 var buttonElem = document.getElementById('msalsas-voting-a-shake-' + id);
-                buttonElem.innerHTML = '<span>' + msalsasVoting_Selected.text + '</span>';
+                buttonElem.innerHTML = '<span>' + window.msalsasVoting_Selected.text + '</span>';
             } else if(http.readyState == 4 && http.status >= 400) {
                 if (http.responseText.length < 50) {
                     alert(http.responseText);
@@ -42,8 +42,8 @@
                 }
             }
         };
-        if (msalsasVoting_Selected.value !== '0') {
-            http.send(msalsasVoting_Selected.value);
+        if (window.msalsasVoting_Selected.value !== '0') {
+            http.send(window.msalsasVoting_Selected.value);
         }
     }
 })();

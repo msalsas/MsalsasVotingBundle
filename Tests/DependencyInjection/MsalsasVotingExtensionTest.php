@@ -12,7 +12,7 @@
 namespace Msalsas\VotingBundle\Tests\DependencyInjection;
 
 use Msalsas\VotingBundle\DependencyInjection\MsalsasVotingExtension;
-use PHPUnit\Framework\TestCase;
+use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Yaml\Parser;
 
