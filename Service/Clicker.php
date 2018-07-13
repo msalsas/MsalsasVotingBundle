@@ -113,8 +113,7 @@ class Clicker
             )) {
                 return true;
             }
-        }
-        else {
+        } else {
             if ($clickRepository->findOneBy(
                 array(
                     'user' => null,
@@ -135,8 +134,7 @@ class Clicker
         $referenceClicks = $this->em->getRepository(ReferenceClicks::class)->findOneBy(array('reference' => $referenceId));
         if ($referenceClicks) {
             $referenceClicks->addClick();
-        }
-        else {
+        } else {
             $referenceClicks = new ReferenceClicks();
             $referenceClicks->setReference($referenceId);
             $referenceClicks->addClick();
