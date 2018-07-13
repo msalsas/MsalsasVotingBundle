@@ -4,7 +4,7 @@ namespace Msalsas\VotingBundle\Tests\Entity;
 
 use Msalsas\VotingBundle\Entity\Click;
 use Msalsas\VotingBundle\Tests\Mock\UserMock;
-use PHPUnit\Framework\TestCase;
+use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
 
 class ClickTest extends TestCase
 {

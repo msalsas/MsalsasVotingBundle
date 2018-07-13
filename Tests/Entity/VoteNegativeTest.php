@@ -4,7 +4,7 @@ namespace Msalsas\VotingBundle\Tests\Entity;
 
 use Msalsas\VotingBundle\Entity\VoteNegative;
 use Msalsas\VotingBundle\Tests\Mock\UserMock;
-use PHPUnit\Framework\TestCase;
+use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
 
 class VoteNegativeTest extends TestCase
 {

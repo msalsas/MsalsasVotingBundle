@@ -256,8 +256,7 @@ class Voter
                 )
             )) {
                 return true;
-            }
-            else if ($voteNegativeRepository->findOneBy(
+            } else if ($voteNegativeRepository->findOneBy(
                 array(
                     'user' => $user,
                     'reference' => $referenceId
@@ -265,9 +264,8 @@ class Voter
             )) {
                 return true;
             }
-        }
-        else {
-            if ($vote = $votePositiveRepository->findOneBy(
+        } else {
+            if ($votePositiveRepository->findOneBy(
                 array(
                     'user' => null,
                     'userIP' => $this->request->getClientIp(),
@@ -287,8 +285,7 @@ class Voter
         $referenceVotes = $this->em->getRepository(ReferenceVotes::class)->findOneBy(array('reference' => $referenceId));
         if ($referenceVotes) {
             $referenceVotes->addVote($positive, $anonymous);
-        }
-        else {
+        } else {
             $referenceVotes = new ReferenceVotes();
             $referenceVotes->setReference($referenceId);
             $referenceVotes->addVote($positive, $anonymous);
@@ -306,7 +303,7 @@ class Voter
             return true;
         }
 
-        $anonPercent = $anonVotes ? ($anonVotes/($userVotes + $anonVotes)) * 100 : 0;
+        $anonPercent = $anonVotes ? ($anonVotes / ($userVotes + $anonVotes)) * 100 : 0;
         if ($anonPercent < $this->anonPercentAllowed) {
             return true;
         }

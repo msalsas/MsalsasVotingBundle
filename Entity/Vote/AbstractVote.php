@@ -22,7 +22,7 @@ abstract class AbstractVote
     protected $id;
 
     /**
-     * @var UserInterface|null
+     * @var UserInterface|null|string
      */
     protected $user = null;
 
