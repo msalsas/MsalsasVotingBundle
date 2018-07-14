@@ -148,6 +148,22 @@ class VoterTest extends WebTestCase
         $this->assertSame($voteNegativeMock, $voter->getUserVote(1));
     }
 
+    public function testGetAnonymousVoteWithVoteByIP()
+    {
+        $this->setAnonymousUserMocks();
+        $votePositiveMock = $this->getVotePositiveMock($this->userMock);
+        $positiveVoteEmRepositoryMock = $this->getRepositoryMock($votePositiveMock);
+        $negativeVoteEmRepositoryMock = $this->getRepositoryMock(null);
+
+        $this->emMock = $this->getMockBuilder(EntityManagerInterface::class)->getMock();
+        $this->emMock->method('getRepository')->withConsecutive([VotePositive::class], [VoteNegative::class])
+            ->willReturnOnConsecutiveCalls($positiveVoteEmRepositoryMock, $negativeVoteEmRepositoryMock);
+
+        $voter = new Voter($this->emMock, $this->tokenStorageMock, $this->requestStackMock, $this->translator, 50, 2, array('irrelevant'));
+
+        $this->assertSame($votePositiveMock, $voter->getUserVote(1));
+    }
+
     public function testVotePositiveWithUser()
     {
         $this->setUserMocks();
