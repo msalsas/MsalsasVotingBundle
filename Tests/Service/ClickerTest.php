@@ -17,6 +17,7 @@ use Msalsas\VotingBundle\Entity\Click;
 use Msalsas\VotingBundle\Entity\ReferenceClicks;
 use Msalsas\VotingBundle\Service\Clicker;
 use Msalsas\VotingBundle\Tests\Mock\AnonymousUserMock;
+use Msalsas\VotingBundle\Tests\Mock\ClickMock;
 use Msalsas\VotingBundle\Tests\Mock\UserMock;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\Translation\Translator;
@@ -151,11 +152,7 @@ class ClickerTest extends WebTestCase
         $userMock = $this->getMockBuilder(UserMock::class)
             ->getMock();
 
-        $clickMock = $this->getMockBuilder(Click::class)
-            ->getMock();
-        $clickMock->method('getId')->willReturn(1);
-        $clickMock->method('getReference')->willReturn(1);
-        $clickMock->method('getUser')->willReturn($userMock);
+        $clickMock = $this->getClickMock($userMock);
         $referenceClicksMock = $this->getMockBuilder(ReferenceClicks::class)
             ->getMock();
         $referenceClicksMock->method('getReference')->willReturn(1);
@@ -192,11 +189,6 @@ class ClickerTest extends WebTestCase
         $userMock = $this->getMockBuilder(UserMock::class)
             ->getMock();
 
-        $clickMock = $this->getMockBuilder(Click::class)
-            ->getMock();
-        $clickMock->method('getId')->willReturn(1);
-        $clickMock->method('getReference')->willReturn(1);
-        $clickMock->method('getUser')->willReturn($userMock);
         $referenceClicksMock = $this->getMockBuilder(ReferenceClicks::class)
             ->getMock();
         $referenceClicksMock->method('getReference')->willReturn(1);
@@ -232,11 +224,7 @@ class ClickerTest extends WebTestCase
         $userMock = $this->getMockBuilder(AnonymousUserMock::class)
             ->getMock();
 
-        $clickMock = $this->getMockBuilder(Click::class)
-            ->getMock();
-        $clickMock->method('getId')->willReturn(1);
-        $clickMock->method('getReference')->willReturn(1);
-        $clickMock->method('getUser')->willReturn($userMock);
+        $clickMock = $this->getClickMock($userMock);
         $referenceClicksMock = $this->getMockBuilder(ReferenceClicks::class)
             ->getMock();
         $referenceClicksMock->method('getReference')->willReturn(1);
@@ -265,5 +253,12 @@ class ClickerTest extends WebTestCase
         $clicks = $clicker->addClick(1);
 
         $this->assertSame(2, $clicks);
+    }
+
+    private function getClickMock($user, $userIP = '127.0.0.1')
+    {
+        return $this->getMockBuilder(ClickMock::class)
+            ->setConstructorArgs(array($user, $userIP))
+            ->getMock();
     }
 }

@@ -179,7 +179,9 @@ class Voter
         $votePositiveRepository = $this->em->getRepository(VotePositive::class);
         $voteNegativeRepository = $this->em->getRepository(VoteNegative::class);
 
-        if ($vote = $votePositiveRepository->findOneBy(array('user' => $user, 'reference' => $referenceId))) {
+        if ($user && $vote = $votePositiveRepository->findOneBy(array('user' => $user, 'reference' => $referenceId))) {
+            return $vote;
+        } else if (!$user && $vote = $votePositiveRepository->findOneBy(array('user' => $user, 'reference' => $referenceId, 'userIP' => $this->request->getClientIp()))) {
             return $vote;
         } else if ($vote = $voteNegativeRepository->findOneBy(array('user' => $user, 'reference' => $referenceId))) {
             return $vote;
