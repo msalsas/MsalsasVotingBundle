@@ -23,8 +23,7 @@
   },
   "require-dev": {
     "dama/doctrine-test-bundle": "^5.0",
-    "symfony/phpunit-bridge": "^4.0",
-    "phpunit/phpunit": "^7.2"
+    "symfony/phpunit-bridge": "^4.0"
   },
   "config": {
     "platform": {
