@@ -20,6 +20,7 @@ class ClickMock
     public function __construct($user, $userIP = '127.0.0.1')
     {
         $this->user = $user;
+        $this->userIP = $userIP;
     }
 
     public function getId()
