@@ -15,7 +15,7 @@ Features include:
 - Built in CSS
 - Publish posts
 
-[![Build Status](https://travis-ci.org/msalsas/MsalsasVotingBundle.svg?branch=master)](https://travis-ci.org/msalsas/MsalsasVotingBundle) [![Latest Stable Version](https://poser.pugx.org/msalsas/voting-bundle/v/stable.svg)](https://packagist.org/packages/msalsas/voting-bundle)
+[![Build Status](https://travis-ci.org/msalsas/MsalsasVotingBundle.svg?branch=master)](https://travis-ci.org/msalsas/MsalsasVotingBundle) [![Code Coverage](https://scrutinizer-ci.com/g/msalsas/MsalsasVotingBundle/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/msalsas/MsalsasVotingBundle/?branch=master) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/msalsas/MsalsasVotingBundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/msalsas/MsalsasVotingBundle/?branch=master) [![Latest Stable Version](https://poser.pugx.org/msalsas/voting-bundle/v/stable.svg)](https://packagist.org/packages/msalsas/voting-bundle)
 
 Documentation
 -------------
