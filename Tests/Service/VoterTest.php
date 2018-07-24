@@ -17,31 +17,14 @@ use Msalsas\VotingBundle\Entity\ReferenceVotes;
 use Msalsas\VotingBundle\Entity\VoteNegative;
 use Msalsas\VotingBundle\Entity\VotePositive;
 use Msalsas\VotingBundle\Service\Voter;
-use Msalsas\VotingBundle\Tests\Mock\AnonymousUserMock;
-use Msalsas\VotingBundle\Tests\Mock\UserMock;
 use Msalsas\VotingBundle\Tests\Mock\VoteNegativeMock;
 use Msalsas\VotingBundle\Tests\Mock\VotePositiveMock;
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Symfony\Component\Translation\Translator;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
-use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 
-class VoterTest extends WebTestCase
+
+class VoterTest extends AbstractServiceTest
 {
-    protected $emMock;
-    protected $requestStackMock;
-    protected $translator;
-    protected $userMock;
-    protected $tokenStorageMock;
-
-    public function setUp()
-    {
-        parent::setUp();
-        $this->setDefaultMocks();
-        $this->translator = new Translator('en');
-    }
 
     public function testAnonymousCannotVoteNegative()
     {
@@ -509,67 +492,6 @@ class VoterTest extends WebTestCase
         $voter = new Voter($this->emMock, $this->tokenStorageMock, $this->requestStackMock, $this->translator, 50, 2, array('irrelevant'));
 
         $this->assertSame(false, $voter->isPublished(1));
-    }
-
-    private function setDefaultMocks()
-    {
-        $emRepositoryMock = $this->getMockBuilder(ObjectRepository::class)->getMock();
-        $this->emMock = $this->getMockBuilder(EntityManagerInterface::class)->getMock();
-        $this->emMock->method('getRepository')->willReturn($emRepositoryMock);
-
-        $requestMock = $this->getMockBuilder(Request::class)
-            ->disableOriginalConstructor()
-            ->setMethods(array('getClientIp'))
-            ->getMock();
-        $requestMock->expects($this->any())
-            ->method('getClientIp')->willReturn('127.0.0.1');
-
-        $this->requestStackMock = $this->getMockBuilder(RequestStack::class)
-            ->disableOriginalConstructor()
-            ->setMethods(array('getCurrentRequest'))
-            ->getMock();
-        $this->requestStackMock->expects($this->any())
-            ->method('getCurrentRequest')->willReturn($requestMock);
-    }
-
-    private function setUserMocks()
-    {
-        $this->userMock = $this->getMockBuilder(UserMock::class)
-            ->getMock();
-
-        $tokenMock = $this->getMockBuilder(TokenInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $tokenMock->method('getUser')->willReturn($this->userMock);
-
-        $this->tokenStorageMock = $this->getMockBuilder(TokenStorageInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $this->tokenStorageMock->method('getToken')->willReturn($tokenMock);
-    }
-
-    private function setAnonymousUserMocks()
-    {
-        $this->userMock = $this->getMockBuilder(AnonymousUserMock::class)
-            ->getMock();
-
-        $tokenMock = $this->getMockBuilder(TokenInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $tokenMock->method('getUser')->willReturn($this->userMock);
-
-        $this->tokenStorageMock = $this->getMockBuilder(TokenStorageInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $this->tokenStorageMock->method('getToken')->willReturn($tokenMock);
-    }
-
-    private function getRepositoryMock($classMock)
-    {
-        $emRepositoryMock = $this->getMockBuilder(ObjectRepository::class)->getMock();
-        $emRepositoryMock->method('findOneBy')->willReturn($classMock);
-
-        return $emRepositoryMock;
     }
 
     private function getVotePositiveMock($user, $userIP = '127.0.0.1')
