@@ -48,8 +48,8 @@ class MsalsasVotingExtension extends Extension implements PrependExtensionInterf
         $twigConfig = [];
         $twigConfig['globals']['msalsas_voting_voter'] = "@msalsas_voting.voter";
         $twigConfig['globals']['msalsas_voting_clicker'] = "@msalsas_voting.clicker";
-        $twigConfig['paths']['%kernel.project_dir%/vendor/msalsas/voting-bundle/Resources/views'] = "msalsas_voting";
-        $twigConfig['paths']['%kernel.project_dir%/vendor/msalsas/voting-bundle/Resources/public'] = "msalsas_voting.public";
+        $twigConfig['paths'][__DIR__ . '/../Resources/views'] = "msalsas_voting";
+        $twigConfig['paths'][__DIR__ . '/../Resources/public'] = "msalsas_voting.public";
         $container->prependExtensionConfig('twig', $twigConfig);
     }
 
