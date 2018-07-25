@@ -29,7 +29,7 @@ For more information about translations, check `Symfony documentation`_.
 Installation
 ------------
 
-Installation is a quick 7 step process:
+Installation is a quick 7 step process (4 if you use Flex):
 
 1. Download MsalsasVotingBundle using composer
 2. Enable the Bundle
@@ -55,7 +55,11 @@ Composer will install the bundle to your project's ``vendor/msalsas/voting-bundl
 Step 2: Enable the bundle
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Enable the bundle in the kernel::
+.. note::
+
+    If you're using Flex, this is done automatically
+
+Enable the bundle in the kernel:
 
     <?php
     // app/AppKernel.php
@@ -83,6 +87,10 @@ properties or methods you find useful. This is *your* ``Reference`` class.
 Step 4: Configure the MsalsasVotingBundle
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. note::
+
+    If you're using Flex, this is done automatically
+
 Add the following configuration to your ``config/packages/msalsas_voting.yaml`` file.
 
 .. configuration-block::
@@ -106,6 +114,10 @@ Add the following configuration to your ``config/packages/msalsas_voting.yaml`` 
 
 Step 5: Create MsalsasVotingBundle routes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. note::
+
+    If you're using Flex, this is done automatically
 
 Now that you have activated and configured the bundle, you have to create the routing file.
 You can edit the paths to whatever you want, but including ``{id}``.
@@ -148,6 +160,7 @@ For displaying the voting widgets you have to use macros:
     {% import "@msalsas_voting/msalsas_voting_widget.html.twig" as msalsas_voting_widget %} # Import macros
     {{ msalsas_voting_widget.shakeItCSS() }} # Import CSS macro (optional)
     {{ msalsas_voting_widget.shakeItJS() }} # Import JS macro
+    {{ msalsas_voting_widget.shakeItModal() }} # Import Modal macro (for errors)
 
     <article class="post">
         {{ msalsas_voting_widget.shakeIt(post.id) }} # Import the voting widget
@@ -165,10 +178,21 @@ For displaying the voting widgets you have to use macros:
 Also, you have to import `Font Awesome`_ if you want to show the bottom bar icons
 
 
-Instead of using ``msalsas_voting_widget.shakeItCSS()`` and ``msalsas_voting_widget.shakeItJS()``
-you can import ``vendor/msalsas/voting-bundle/Resources/public/css/msalsas_voting_styles.css``,
-``vendor/msalsas/voting-bundle/Resources/public/js/msalsas_voting_shakeIt.js`` and
-``vendor/msalsas/voting-bundle/Resources/public/js/msalsas_voting_bottomBar.js`` with your assets.
+Instead of using
+
+``msalsas_voting_widget.shakeItCSS()``
+
+``msalsas_voting_widget.shakeItJS()``
+
+you can import
+
+``vendor/msalsas/voting-bundle/Resources/public/css/msalsas_voting_styles.css``
+
+``vendor/msalsas/voting-bundle/Resources/public/js/msalsas_voting_shakeIt.js``
+
+with your assets.
+
+If you don't use ``shakeItModal`` errors will be displayed with ``alert``.
 
 .. _Font Awesome: https://fontawesome.com/how-to-use/on-the-web/setup/getting-started?using=web-fonts-with-css
 
@@ -184,8 +208,11 @@ The following documents are available:
 
 `1. Clicks or views`_.
 
-`2. Configuration reference`_.
+`2. Publishing`_.
+
+`3. Configuration reference`_.
 
 .. _1. Clicks or views: ./clicks_or_views.rst
-.. _2. Configuration reference: ./configuration_reference.rst
+.. _2. Publishing: ./publish.rst
+.. _3. Configuration reference: ./configuration_reference.rst
 

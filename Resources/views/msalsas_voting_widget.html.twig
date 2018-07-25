@@ -70,6 +70,15 @@ file that was distributed with this source code. #}
     </div>
 {% endmacro bottomBar %}
 
+{% macro shakeItModal() %}
+    <div id="msalsas-modal">
+        <div class="msalsas-modal-content">
+            <span class="msalsas-close">&times;</span>
+            <p id="msalsas-modal-text">Error</p>
+        </div>
+    </div>
+{% endmacro %}
+
 {% macro shakeItCSS() %}
     <style>{{ source('@msalsas_voting.public/css/msalsas_voting_styles.css') }}</style>
 {% endmacro shakeItCSS %}
