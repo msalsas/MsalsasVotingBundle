@@ -125,3 +125,52 @@
     width: 75px;
     border-radius: 0;
 }
+
+/*Modal*/
+#msalsas-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+/* Modal Content/Box */
+.msalsas-modal-content {
+    background-color: #FFEEC7;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #e35614;
+    min-width: 250px;
+    text-align: center;
+    width: 25%;
+    height: 18.5ex;
+    overflow: hidden;
+    border-radius: 3px;
+}
+#msalsas-modal-text {
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.msalsas-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 15px;
+}
+
+.msalsas-close:hover,
+.msalsas-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

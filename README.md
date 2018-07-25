@@ -14,6 +14,7 @@ Features include:
 - Clicks or views
 - Built in CSS
 - Publish posts
+- Modal for errors
 
 [![Build Status](https://travis-ci.org/msalsas/MsalsasVotingBundle.svg?branch=master)](https://travis-ci.org/msalsas/MsalsasVotingBundle) [![Code Coverage](https://scrutinizer-ci.com/g/msalsas/MsalsasVotingBundle/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/msalsas/MsalsasVotingBundle/?branch=master) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/msalsas/MsalsasVotingBundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/msalsas/MsalsasVotingBundle/?branch=master) [![Latest Stable Version](https://poser.pugx.org/msalsas/voting-bundle/v/stable.svg)](https://packagist.org/packages/msalsas/voting-bundle)
 
