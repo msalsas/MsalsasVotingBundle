@@ -6,7 +6,7 @@ It has been inspired on [https://www.meneame.net](https://www.meneame.net)
 
 ![Alt text](Resources/doc/screenshot-1.png?raw=true "Screenshot")
 
-###[DEMO](https://github.com/msalsas/voting-bundle-demo)
+[**DEMO**](https://github.com/msalsas/voting-bundle-demo)
 
 Features include:
 
